@@ -70,5 +70,11 @@
     "email": "teddy@gmail.com",
     "password": "$2a$10$4GSA1Iy9p4zDFYjuxNrvTuDD08eCciP2y2a9DowTyhwx9qpahkS8a",
     "confirmpassword": "$2a$10$4GSA1Iy9p4zDFYjuxNrvTuDD08eCciP2y2a9DowTyhwx9qpahkS8a"
+  },
+  {
+    "name": "Teddy",
+    "email": "t@gmail.com",
+    "password": "$2a$10$upI.x2H5odm7Ijlfc3zco.elzs81aPV7Cm88UjGIpHb/sBY25vJv6",
+    "confirmpassword": "$2a$10$upI.x2H5odm7Ijlfc3zco.elzs81aPV7Cm88UjGIpHb/sBY25vJv6"
   }
 ]
