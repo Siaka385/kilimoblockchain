@@ -1,31 +1,50 @@
-# Order Tracking and Fair Pricing System
+# Kilimo-Chain
 
-Welcome to the **Order Tracking and Fair Pricing System**! This Go-based application helps businesses manage their orders and ensure that products are priced fairly. This README will guide you through the system's features, installation, and usage.
-
-## Table of Contents
-
-1. [Features](#features)
-2. [Installation](#installation)
-3. [Usage](#usage)
-4. [Configuration](#configuration)
-5. [API Endpoints](#api-endpoints)
-6. [Contributing](#contributing)
-7. [License](#license)
+Kilimo-Chain is a web application for managing agricultural supply chains. It allows users to register as farmers or cooperates, log in, and interact with a blockchain to add transactions and view the blockchain.
 
 ## Features
 
-- **Order Tracking:** Monitor and manage orders efficiently.
-- **Fair Pricing:** Maintain product prices based on dynamic market factors.
-- **Real-Time Updates:** Get real-time updates on orders and pricing changes.
-- **Data Storage:** Store order and pricing information in a robust database.
-- **User Authentication:** Secure user access with authentication.
+- User registration for farmers and cooperates
+- User login for farmers and cooperates
+- Dashboard displaying user information
+- Adding transactions to the blockchain
+- Viewing the blockchain
+
+## Project Structure
+
+- `main.go`: The main application file that sets up routes and starts the server
+- `User`: Struct for user information
+- `blockchain`: Package for managing blockchain data
+- `static`: Directory for static files (CSS, JavaScript, images)
+
+## Prerequisites
+
+- Go (version 1.16+)
 
 ## Installation
 
-To get started with the Order Tracking and Fair Pricing System, follow these steps:
+1. Clone the repository:
 
-1. **Clone the Repository:**
+```bash
+git clone https://github.com/yourusername/kilimo-chain.git
+cd kilimo-chain
+```
 
-   ```bash
-   git clone https://github.com/yourusername/order-pricing-system.git
-   cd order-pricing-system
+## Run the server:
+
+```bash
+go run main.go
+```
+
+## Usage
+
+1. Sign up as a farmer or cooperate by navigating to /signup.
+2. Log in by navigating to /signin.
+3. After logging in, access the dashboard at /dashboard.
+
+## Contributing
+- Contributions are welcome! Please open an issue or submit a pull request.
+
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
