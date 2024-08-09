@@ -22,3 +22,15 @@ document.getElementById('option2-btn').addEventListener('click', () => {
 
 
 
+document.querySelector('#passwordvisible').addEventListener('click', () => {
+    var myfields = document.querySelectorAll(".pass");
+    for (var i = 0; i < myfields.length; i++) {
+        if (document.querySelector('#passwordvisible').checked) {
+            myfields[i].type = "text";  
+        } else {
+            myfields[i].type = "password"; 
+        }
+    }
+});
+
+
