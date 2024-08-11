@@ -230,6 +230,140 @@
     background-color: #f1f1f1;
 }
 
+/* Modal Background */
+#add-product-modal {
+    position: fixed;
+    top: 20;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff;
+    margin-top: 5%;
+    margin-left: 5%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    max-width: 90%;
+}
+
+/* Modal Header */
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form Labels */
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Form Inputs */
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Buttons */
+.modal-content button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#save-product-btn {
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 10px;
+}
+#add-product-btn{
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100px;
+    height: 30px;
+}
+
+#cancel-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+#save-product-btn:hover {
+    background-color: #45a049;
+}
+
+#cancel-btn:hover {
+    background-color: #d32f2f;
+}
+/* Label Style */
+label[for="saleMethod"] {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+    font-size: 16px;
+}
+
+/* Dropdown Style */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    -webkit-appearance: none; /* Remove default arrow in Safari and Chrome */
+    -moz-appearance: none; /* Remove default arrow in Firefox */
+    appearance: none; /* Remove default arrow in modern browsers */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBkPSJNNC43IDcuMzlsMy4zIDMuM2MuMi4yLjUuMi43IDBsMy4zLTMuM2MuMy0uMy4xLS45LS4zLS45SDUuMmMtLjQtLjEtLjctLjUtLjMtLjl6IiBmaWxsPSIjMDAwMDAwIi8+Cjwvc3ZnPgo='); /* Custom arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+}
+
+/* Dropdown Hover and Focus Style */
+select:hover, select:focus {
+    border-color: #999;
+    outline: none;
+}
+
+/* Adjust for Mobile */
+@media screen and (max-width: 600px) {
+    select {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+
         /* Responsive Sidebar */
         @media (max-width: 768px) {
             .sidebar {
