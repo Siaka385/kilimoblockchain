@@ -22,5 +22,37 @@
     "phoneNumber": "1233333333",
     "password": "$2a$10$Ox063a08NZ1g6LyiodKN6OvvVpXMdoxBzr32waK.kUmI3.HeL5sF2",
     "confirmpassword": "$2a$10$Ox063a08NZ1g6LyiodKN6OvvVpXMdoxBzr32waK.kUmI3.HeL5sF2"
+  },
+  {
+    "name": "Teddy",
+    "username": "teddysiaka",
+    "email": "tedy@gmail.com",
+    "phoneNumber": "1234567890",
+    "password": "$2a$10$Y9z.noA9x.1u0eBXIgQ99OjEfQGeNAGtUYB9xH9MW1GUJxjJKZJbe",
+    "confirmpassword": "$2a$10$Y9z.noA9x.1u0eBXIgQ99OjEfQGeNAGtUYB9xH9MW1GUJxjJKZJbe"
+  },
+  {
+    "name": "Teddy",
+    "username": "siktedy",
+    "email": "tedsy@gmail.com",
+    "phoneNumber": "1234567890",
+    "password": "$2a$10$LPhAivzi7N6wTNcpnQCjvuK86.6kOI8fXFOeip/jYIU847matdAmq",
+    "confirmpassword": "$2a$10$LPhAivzi7N6wTNcpnQCjvuK86.6kOI8fXFOeip/jYIU847matdAmq"
+  },
+  {
+    "name": "Teddy",
+    "username": "SI",
+    "email": "A@gmail.com",
+    "phoneNumber": "1111111111",
+    "password": "$2a$10$gRecQOJmYv/c6jivLdnm9ejhc1LhQ0eOiuDpv1btLeZA9KkamllXO",
+    "confirmpassword": "$2a$10$gRecQOJmYv/c6jivLdnm9ejhc1LhQ0eOiuDpv1btLeZA9KkamllXO"
+  },
+  {
+    "name": "Teddy",
+    "username": "y",
+    "email": "y@gmail.com",
+    "phoneNumber": "0745202285",
+    "password": "$2a$10$Mid5CNOprQtB9b5agS3k.O/hBenyPdVQJI7HUbxuu800CPYT/SOE2",
+    "confirmpassword": "$2a$10$Mid5CNOprQtB9b5agS3k.O/hBenyPdVQJI7HUbxuu800CPYT/SOE2"
   }
 ]

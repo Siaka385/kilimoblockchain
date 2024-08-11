@@ -18,6 +18,15 @@
     display: flex;
     flex-direction: column;
 }
+.btn{
+    background-color:#04AA6D;
+    border:none;border-radius:5px;
+    padding: 5px;
+    width: 80px;
+}
+.btn:hover{
+    background-color: #45a049;
+}
    </style>
 </head>
 <body>
@@ -25,7 +34,8 @@
         <div class="container">
             <span class="logo"><img src="Images/logo.png" alt="Kilimo-Chain Logo"></span>
             <nav class="rightSide">
-                <a href="/signup" style="display: inline-block; text-decoration: none; padding: 5px;">Register</a>
+             <button class="btn"><a href="/signup" style="display: inline-block; text-decoration: none; padding: 5px;color:white">Register</a></button>
+              <button class="btn"><a href="/signin" style="display: inline-block; text-decoration: none; padding: 5px;color:white">login</a></button>  
                 <a href="/products" style="display: inline-block; text-decoration: none;padding: 5px;">products</a>
                 <a href="/partners" style="display: inline-block; text-decoration: none;padding: 5px;">Parteners</a> 
                 <a href="/about" style="display: inline-block; text-decoration: none; padding: 5px;">About</a>

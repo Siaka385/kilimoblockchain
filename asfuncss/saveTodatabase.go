@@ -71,7 +71,7 @@ func Reg(w http.ResponseWriter, r *http.Request) {
 		user.Confirmpassword = user.Password
 		Email = user.Email
 		SaveDetails(user, w)
-		http.Redirect(w, r, "/signin", http.StatusFound)
+		http.Redirect(w, r, "/Dashboard", http.StatusFound)
 	}
 }
 
