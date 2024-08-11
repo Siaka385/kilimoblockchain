@@ -33,10 +33,10 @@ type Farmer struct {
 
 // Function to handle the HTTP request and render the dashboard
 func DashboardHandler(w http.ResponseWriter, r *http.Request) {
-	if Email == "" {
-		http.Error(w, "Email is required", http.StatusBadRequest)
-		return
-	}
+	// if Email == "" {
+	// 	http.Error(w, "Email is required", http.StatusBadRequest)
+	// 	return
+	// }
 
 	// Open and read the JSON file
 	file, err := os.Open("users.json")

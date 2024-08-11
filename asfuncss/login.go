@@ -43,7 +43,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			} else {
 
 				data := Error{"WRONG PASSWORD"}
-				tmpl, _ := template.ParseFiles("Signin.html")
+				tmpl, _ := template.ParseFiles("login.html")
 				err = tmpl.Execute(w, data)
 				if err != nil {
 					log.Fatalf("template parsing error: %v", err)
@@ -51,15 +51,33 @@ func Login(w http.ResponseWriter, r *http.Request) {
 				log.Printf("Executing template with data: %+v", data)
 				return
 			}
+		} else if user.Username == useremail {
+			fmt.Println(user.Username)
+			if CheckPassword(r, user.Password) {
+				http.Redirect(w, r, "/Dashboard", http.StatusFound)
+			} else {
+
+				data := Error{"WRONG PASSWORD"}
+				tmpl, _ := template.ParseFiles("login.html")
+				err = tmpl.Execute(w, data)
+				if err != nil {
+					log.Fatalf("template parsing error: %v", err)
+				}
+				log.Printf("Executing template with data: %+v", data)
+				return
+			}
+
 		}
 	}
+
 	data := Error{"Username not found"}
-	tmpl, _ := template.ParseFiles("Signin.html")
+	tmpl, _ := template.ParseFiles("login.html")
 	err = tmpl.Execute(w, data)
 	if err != nil {
 		log.Fatalf("template parsing error: %v", err)
 	}
 	log.Printf("Executing template with data: %+v", data)
+
 }
 
 func CheckPassword(r *http.Request, storedPassword string) bool {

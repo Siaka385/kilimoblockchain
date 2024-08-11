@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dashboard</title>
+    <link rel="stylesheet" href="static/dash.css">
+    
+</head>
+<body>
+    <div class="navbar">
+        <button class="toggle-btn">&#9776;</button>
+        <span>Welcome, John Doe</span>
+        <button class="logout-btn">Log Out</button>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <a href="#" id="home-link">Home</a>
+        <a href="#" id="products-link">My Products status</a>
+        <a href="#" id="quality-link">Quality Survey</a>
+        <a href="#" id="transactions-link">Transactions</a>
+        <a href="#" id="market-link">Market Prices</a>
+        <a href="#" id="profile-link">Profile</a>
+        <a href="#" id="logout-link">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <!-- Home Page -->
+        <div id="home-page" class="page-content active">
+            <div class="quick-stats">
+                <h2>Quick Stats</h2>
+                <div>Total Products Registered: 10</div>
+                <div>Pending Quality Survey: 2</div>
+                <div>Approved Products: 7</div>
+                <div>Rejected Products: 1</div>
+                 <div>Products Delivered:2</div>
+            </div>
+
+            <div class="action-buttons">
+                <h2>Actions</h2>
+                <button>Register New Product</button>
+                <button>View My Products</button>
+                <button>Check Market Prices</button>
+            </div>
+
+            <div class="notifications">
+                <h2>Notifications</h2>
+                <ul>
+                    <li>Tomato batch #789 quality survey completed</li>
+                    <li>New price update for Wheat</li>
+                </ul>
+            </div>
+        </div>
+
+       <!-- My Products Page -->
+<di<div id="products-page" class="page-content">
+    <h2>My Products</h2>
+    <div class="recent-activity">
+        <h2>Recent Activity</h2>
+        <table class="activity-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Batch Number</th>
+                    <th>Quantity (in sacks)</th>
+                    <th>Weight per Bag</th>
+                    <th>Product Image</th>
+                </tr>
+            </thead>
+            <tbody id="product-table-body">
+                <tr>
+                    <td>Tomato</td>
+                    <td>#45556</td>
+                    <td>50</td>
+                    <td>20kg</td>
+                    <td><img src="path-to-image1.jpg" alt="Tomato" width="50"></td>
+                </tr>
+                <tr>
+                    <td>Maize</td>
+                    <td>#56660</td>
+                    <td>60</td>
+                    <td>10kg</td>
+                    <td><img src="path-to-image2.jpg" alt="Maize" width="50"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="add-product-btn">Add Product</button>
+    </div>
+</div>
+
+<!-- Modal for Adding a New Product -->
+<div id="add-product-modal" style="display:none;">
+    <div class="modal-content">
+        <h2>Add New Product</h2>
+        <label for="product-name">Product Name:</label>
+        <input type="text" id="product-name">
+        
+        <label for="batch-number">Batch Number:</label>
+        <input type="text" id="batch-number">
+        
+        <label for="quantity">Quantity (in sacks):</label>
+        <input type="number" id="quantity">
+        
+        <label for="weight">Weight per Bag:</label>
+        <input type="text" id="weight">
+        
+        <label for="product-image">Product Image:</label>
+        <input type="file" id="product-image">
+        
+        <button id="save-product-btn">Save Product</button>
+        <button id="cancel-btn">Cancel</button>
+    </div>
+</div>
+
+
+
+        
+       <!-- Quality Survey Page -->
+<div id="quality-page" class="page-content">
+    <h2>Quality Survey Status</h2>
+    <div class="quality-survey">
+        <table class="quality-table">
+            <thead>
+                <tr>
+                    <th>Product Batch</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tomato batch #789</td>
+                    <td>In Progress</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Wheat batch #456</td>
+                    <td>Approved</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Potato batch #567</td>
+                    <td>Rejected</td>
+                    <td>High moisture content</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+        <!-- Transactions Page -->
+        <!-- Transactions Page -->
+<div id="transactions-page" class="page-content">
+    <h2>Transactions</h2>
+    <div class="recent-activity">
+        <h2>Recent Transactions</h2>
+        <table class="transactions-table">
+            <thead>
+                <tr>
+                    <th>Product Batch</th>
+                    <th>Company</th>
+                    <th>Amount (Ksh)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Wheat batch #456</td>
+                    <td>XYZ Company</td>
+                    <td>150,000</td>
+                </tr>
+                <tr>
+                    <td>Maize batch #123</td>
+                    <td>ABC Company</td>
+                    <td>100,000</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Market Prices Page -->
+<div id="market-page" class="page-content">
+    <h2>Market Prices</h2>
+    <div class="market-insights">
+        <table class="market-table">
+            <thead>
+                <tr>
+                    <th>Crop</th>
+                    <th>Price (Ksh/ton)</th>
+                    <th>Trend</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Maize</td>
+                    <td>3000</td>
+                    <td class="price-trend up">⬆</td>
+                </tr>
+                <tr>
+                    <td>Wheat</td>
+                    <td>3500</td>
+                    <td class="price-trend down">⬇</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="profile-page" class="page-content">
+    <h2>User Profile</h2>
+    <div class="user-info">
+        <div class="profile-image">
+            <img src="path-to-default-image.jpg" alt="User Profile Image" id="profile-img">
+            <input type="file" id="upload-img" style="display:none;">
+            <button id="change-img-btn">Change Image</button>
+        </div>
+        <p><strong>Name:</strong> <span id="name-text">John Doe</span></p>
+        <input type="text" id="name-input" value="John Doe" style="display:none;">
+        
+        <p><strong>Email:</strong> <span id="email-text">john.doe@example.com</span></p>
+        <input type="email" id="email-input" value="john.doe@example.com" style="display:none;">
+        
+        <p><strong>Phone Number:</strong> <span id="phone-text">+254 712 345678</span></p>
+        <input type="text" id="phone-input" value="+254 712 345678" style="display:none;">
+        
+        <p><strong>Location:</strong> <span id="location-text">Nairobi, Kenya</span></p>
+        <input type="text" id="location-input" value="Nairobi, Kenya" style="display:none;">
+        
+        <p><strong>Type of Product:</strong> <span id="product-text">Maize, Wheat</span></p>
+        <input type="text" id="product-input" value="Maize, Wheat" style="display:none;">
+        
+        <button id="edit-profile-btn">Edit Profile</button>
+        <button id="save-profile-btn" style="display:none;">Save Profile</button>
+    </div>
+</div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.querySelector('.toggle-btn');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.querySelector('.main-content');
+
+            const pageLinks = document.querySelectorAll('.sidebar a');
+            const pages = document.querySelectorAll('.page-content');
+
+            // Toggle sidebar
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+            });
+
+            // Close sidebar when clicking outside of it
+            mainContent.addEventListener('click', function() {
+                if (sidebar.classList.contains('open')) {
+                    sidebar.classList.remove('open');
+                }
+            });
+
+            // Handle page navigation
+            pageLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = e.target.id.replace('-link', '-page');
+
+                    // Hide all pages
+                    pages.forEach(page => {
+                        page.classList.remove('active');
+                    });
+
+                    // Show the target page
+                    document.getElementById(targetPage).classList.add('active');
+                });
+            });
+            document.getElementById('edit-profile-btn').addEventListener('click', function() {
+                // Hide text elements and show input fields
+                document.getElementById('name-text').style.display = 'none';
+                document.getElementById('name-input').style.display = 'inline-block';
+            
+                document.getElementById('email-text').style.display = 'none';
+                document.getElementById('email-input').style.display = 'inline-block';
+            
+                document.getElementById('phone-text').style.display = 'none';
+                document.getElementById('phone-input').style.display = 'inline-block';
+            
+                document.getElementById('location-text').style.display = 'none';
+                document.getElementById('location-input').style.display = 'inline-block';
+            
+                document.getElementById('product-text').style.display = 'none';
+                document.getElementById('product-input').style.display = 'inline-block';
+            
+                // Hide edit button and show save button
+                document.getElementById('edit-profile-btn').style.display = 'none';
+                document.getElementById('save-profile-btn').style.display = 'inline-block';
+            });
+            
+            document.getElementById('save-profile-btn').addEventListener('click', function() {
+                // Save the input values and update the text elements
+                document.getElementById('name-text').textContent = document.getElementById('name-input').value;
+                document.getElementById('email-text').textContent = document.getElementById('email-input').value;
+                document.getElementById('phone-text').textContent = document.getElementById('phone-input').value;
+                document.getElementById('location-text').textContent = document.getElementById('location-input').value;
+                document.getElementById('product-text').textContent = document.getElementById('product-input').value;
+            
+                // Hide input fields and show updated text elements
+                document.getElementById('name-text').style.display = 'inline-block';
+                document.getElementById('name-input').style.display = 'none';
+            
+                document.getElementById('email-text').style.display = 'inline-block';
+                document.getElementById('email-input').style.display = 'none';
+            
+                document.getElementById('phone-text').style.display = 'inline-block';
+                document.getElementById('phone-input').style.display = 'none';
+            
+                document.getElementById('location-text').style.display = 'inline-block';
+                document.getElementById('location-input').style.display = 'none';
+            
+                document.getElementById('product-text').style.display = 'inline-block';
+                document.getElementById('product-input').style.display = 'none';
+            
+                // Hide save button and show edit button
+                document.getElementById('save-profile-btn').style.display = 'none';
+                document.getElementById('edit-profile-btn').style.display = 'inline-block';
+            });
+
+            document.getElementById('add-product-btn').addEventListener('click', function() {
+                // Show the modal
+                document.getElementById('add-product-modal').style.display = 'block';
+            });
+            
+            document.getElementById('cancel-btn').addEventListener('click', function() {
+                // Hide the modal
+                document.getElementById('add-product-modal').style.display = 'none';
+            });
+            
+            document.getElementById('save-product-btn').addEventListener('click', function() {
+                // Get input values
+                const productName = document.getElementById('product-name').value;
+                const batchNumber = document.getElementById('batch-number').value;
+                const quantity = document.getElementById('quantity').value;
+                const weight = document.getElementById('weight').value;
+                const productImage = document.getElementById('product-image').files[0];
+            
+                // Validate inputs
+                if (!productName || !batchNumber || !quantity || !weight || !productImage) {
+                    alert('Please fill in all fields and select an image.');
+                    return;
+                }
+            
+                // Create a new table row
+                const newRow = document.createElement('tr');
+            
+                // Add product data to the row
+                newRow.innerHTML = `
+                    <td>${productName}</td>
+                    <td>${batchNumber}</td>
+                    <td>${quantity}</td>
+                    <td>${weight}</td>
+                    <td><img src="${URL.createObjectURL(productImage)}" alt="${productName}" width="50"></td>
+                `;
+            
+                // Append the new row to the table body
+                document.getElementById('product-table-body').appendChild(newRow);
+            
+                // Hide the modal
+                document.getElementById('add-product-modal').style.display = 'none';
+            
+                // Clear the input fields
+                document.getElementById('product-name').value = '';
+                document.getElementById('batch-number').value = '';
+                document.getElementById('quantity').value = '';
+                document.getElementById('weight').value = '';
+                document.getElementById('product-image').value = '';
+            });
+            
+            
+        });
+    </script>
+</body>
+</html>

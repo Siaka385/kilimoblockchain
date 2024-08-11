@@ -46,5 +46,13 @@
     "phoneNumber": "1111111111",
     "password": "$2a$10$gRecQOJmYv/c6jivLdnm9ejhc1LhQ0eOiuDpv1btLeZA9KkamllXO",
     "confirmpassword": "$2a$10$gRecQOJmYv/c6jivLdnm9ejhc1LhQ0eOiuDpv1btLeZA9KkamllXO"
+  },
+  {
+    "name": "Teddy",
+    "username": "y",
+    "email": "y@gmail.com",
+    "phoneNumber": "0745202285",
+    "password": "$2a$10$Mid5CNOprQtB9b5agS3k.O/hBenyPdVQJI7HUbxuu800CPYT/SOE2",
+    "confirmpassword": "$2a$10$Mid5CNOprQtB9b5agS3k.O/hBenyPdVQJI7HUbxuu800CPYT/SOE2"
   }
 ]

@@ -1,37 +1,37 @@
-document.addEventListener('DOMContentLoaded', () => {
+
+document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.querySelector('.toggle-btn');
     const sidebar = document.getElementById('sidebar');
-    const closeBtn = document.getElementById('close-btn');
-    const homeLink = document.getElementById('home-link');
-    const infoLink = document.getElementById('info-link');
-    const saleLink = document.getElementById('sale-link');
-    const homeContent = document.getElementById('home');
-    const infoContent = document.getElementById('info');
-    const saleContent = document.getElementById('sale');
+    const mainContent = document.querySelector('.main-content');
 
-    toggleBtn.addEventListener('click', () => {
-        sidebar.style.width = '250px';
+    const pageLinks = document.querySelectorAll('.sidebar a');
+    const pages = document.querySelectorAll('.page-content');
+
+    // Toggle sidebar
+    toggleBtn.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
     });
 
-    closeBtn.addEventListener('click', () => {
-        sidebar.style.width = '0';
+    // Close sidebar when clicking outside of it
+    mainContent.addEventListener('click', function() {
+        if (sidebar.classList.contains('open')) {
+            sidebar.classList.remove('open');
+        }
     });
 
-    homeLink.addEventListener('click', () => {
-        setActiveContent(homeContent);
-    });
+    // Handle page navigation
+    pageLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetPage = e.target.id.replace('-link', '-page');
 
-    infoLink.addEventListener('click', () => {
-        setActiveContent(infoContent);
-    });
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
 
-    saleLink.addEventListener('click', () => {
-        setActiveContent(saleContent);
+            // Show the target page
+            document.getElementById(targetPage).classList.add('active');
+        });
     });
-
-    function setActiveContent(content) {
-        [homeContent, infoContent, saleContent].forEach(c => c.classList.remove('active'));
-        content.classList.add('active');
-        sidebar.style.width = '0';
-    }
 });

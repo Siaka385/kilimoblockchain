@@ -22,6 +22,7 @@ func Loginpageload(w http.ResponseWriter, r *http.Request) {
 
 func router(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/" {
+
 		SignUphandler(w)
 	} else if r.URL.Path == "/reg" {
 		asfuncss.Reg(w, r)
@@ -45,8 +46,8 @@ func signup(w http.ResponseWriter, r *http.Request) {
 }
 
 func signin(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
-	tmp, _ := template.ParseFiles("about.html")
+	fmt.Println("ffffffffffffff")
+	tmp, _ := template.ParseFiles("login.html")
 	tmp.Execute(w, nil)
 }
 
