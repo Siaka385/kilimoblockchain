@@ -53,7 +53,7 @@
         </div>
 
        <!-- My Products Page -->
-<di<div id="products-page" class="page-content">
+<div id="products-page" class="page-content">
     <h2>My Products</h2>
     <div class="recent-activity">
         <h2>Recent Activity</h2>
@@ -224,33 +224,80 @@
         </table>
     </div>
 </div>
+
 <div id="profile-page" class="page-content">
-    <h2>User Profile</h2>
-    <div class="user-info">
-        <div class="profile-image">
-            <img src="path-to-default-image.jpg" alt="User Profile Image" id="profile-img">
-            <input type="file" id="upload-img" style="display:none;">
-            <button id="change-img-btn">Change Image</button>
+    <h2 id="title">About</h2>
+    <div class="section">
+        <h3>Personal Information</h3>
+        <p>Name: <strong id="name" >John Doe</strong></p>
+        <p>Email: <strong id="email">johndoe@gmail.com</strong></p>
+        <p>Phone number: <strong id="phonenumber">07123456</strong></p>
+        <p>Location: <strong id="location">Kisumu</strong></p>
+        <button class="edit-button" id="profilebtn">Edit Personal Info</button>
+    </div>
+
+    <div class="section">
+        <h3>Farm Information</h3>
+        <p>Farm Name: <strong id="farmname">Green Valley Farms</strong></p>
+        <p>Farm Size: <strong id="farmsize">50 acres</strong></p>
+        <p>Type of Products: <strong id="products">Maize, Beans, Dairy</strong></p>
+        <p>Years of Experience: <strong id="Experience">15 years</strong></p>
+        <button class="edit-button" id="farmbtn">Edit Farm Info</button>
+    </div>
+
+    <div class="section">
+        <h3>Banking and Payment Info</h3>
+        <p>Preferred Payment Method: <strong id="paymentmethod">Mobile Money (M-Pesa)</strong></p>
+        <p>PayBill: <strong id="PayBill">522533</strong></p>
+        <p>Account number: <strong id="Account">123</strong></p>
+        <button class="edit-button" id="editBankMethod">Edit Banking Info</button>
+        <button class="edit-button"  id="addbankmethod">Add another payment method</button>
+    </div>
+
+    <div class="section">
+        <h3>Social Media</h3>
+        <p>Facebook: <a href="https://facebook.com/johndoe" target="_blank"><strong>facebook.com/johndoe</strong></a></p>
+        <p>Twitter: <a href="https://twitter.com/johndoe" target="_blank"><strong>@johndoe</strong></a></p>
+        <p>Instagram: <a href="https://instagram.com/johndoe" target="_blank"><strong>@johndoe</strong></a></p>
+        <button class="edit-button">Edit Social Media</button>
+    </div>
+
+
+<!--EDIT PROFILE PERSONAL INFO-->
+<div class="form-container" style="display: none;" id="profileeditor">
+    <h2>Personal Information</h2>
+    <form>
+        <div class="form-group">
+            <label for="profile-pic">Profile Picture</label>
+            <input type="file" id="profile-pic" accept="image/*">
+            <img id="profile-pic-preview" src="" alt="Profile Picture Preview" style="display:none;">
         </div>
-        <p><strong>Name:</strong> <span id="name-text">John Doe</span></p>
-        <input type="text" id="name-input" value="John Doe" style="display:none;">
-        
-        <p><strong>Email:</strong> <span id="email-text">john.doe@example.com</span></p>
-        <input type="email" id="email-input" value="john.doe@example.com" style="display:none;">
-        
-        <p><strong>Phone Number:</strong> <span id="phone-text">+254 712 345678</span></p>
-        <input type="text" id="phone-input" value="+254 712 345678" style="display:none;">
-        
-        <p><strong>Location:</strong> <span id="location-text">Nairobi, Kenya</span></p>
-        <input type="text" id="location-input" value="Nairobi, Kenya" style="display:none;">
-        
-        <p><strong>Type of Product:</strong> <span id="product-text">Maize, Wheat</span></p>
-        <input type="text" id="product-input" value="Maize, Wheat" style="display:none;">
-        
-        <button id="edit-profile-btn">Edit Profile</button>
-        <button id="save-profile-btn" style="display:none;">Save Profile</button>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="editname" name="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="editemail" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="editphone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="editlocation" name="location" placeholder="Enter your county's name" required>
+        </div>
+    </form>
+    <div class="button-group">
+        <button type="button"  class="save-button" id="saveprofilebtn">Save</button>
+        <button type="button" class="cancel-button">Cancel</button>
     </div>
 </div>
+
+
+</div>
+
 
 
     <script>
@@ -289,56 +336,108 @@
                     document.getElementById(targetPage).classList.add('active');
                 });
             });
-            document.getElementById('edit-profile-btn').addEventListener('click', function() {
-                // Hide text elements and show input fields
-                document.getElementById('name-text').style.display = 'none';
-                document.getElementById('name-input').style.display = 'inline-block';
-            
-                document.getElementById('email-text').style.display = 'none';
-                document.getElementById('email-input').style.display = 'inline-block';
-            
-                document.getElementById('phone-text').style.display = 'none';
-                document.getElementById('phone-input').style.display = 'inline-block';
-            
-                document.getElementById('location-text').style.display = 'none';
-                document.getElementById('location-input').style.display = 'inline-block';
-            
-                document.getElementById('product-text').style.display = 'none';
-                document.getElementById('product-input').style.display = 'inline-block';
-            
-                // Hide edit button and show save button
-                document.getElementById('edit-profile-btn').style.display = 'none';
-                document.getElementById('save-profile-btn').style.display = 'inline-block';
-            });
-            
-            document.getElementById('save-profile-btn').addEventListener('click', function() {
-                // Save the input values and update the text elements
-                document.getElementById('name-text').textContent = document.getElementById('name-input').value;
-                document.getElementById('email-text').textContent = document.getElementById('email-input').value;
-                document.getElementById('phone-text').textContent = document.getElementById('phone-input').value;
-                document.getElementById('location-text').textContent = document.getElementById('location-input').value;
-                document.getElementById('product-text').textContent = document.getElementById('product-input').value;
-            
-                // Hide input fields and show updated text elements
-                document.getElementById('name-text').style.display = 'inline-block';
-                document.getElementById('name-input').style.display = 'none';
-            
-                document.getElementById('email-text').style.display = 'inline-block';
-                document.getElementById('email-input').style.display = 'none';
-            
-                document.getElementById('phone-text').style.display = 'inline-block';
-                document.getElementById('phone-input').style.display = 'none';
-            
-                document.getElementById('location-text').style.display = 'inline-block';
-                document.getElementById('location-input').style.display = 'none';
-            
-                document.getElementById('product-text').style.display = 'inline-block';
-                document.getElementById('product-input').style.display = 'none';
-            
-                // Hide save button and show edit button
-                document.getElementById('save-profile-btn').style.display = 'none';
-                document.getElementById('edit-profile-btn').style.display = 'inline-block';
-            });
+
+
+
+            /**************************************************
+             * PROFILE PAGE
+             *******************/
+             document.getElementById('profilebtn').addEventListener('click', function() {
+    // Hide text elements and show input fields
+    var hides = document.querySelectorAll('.section');
+    document.getElementById("title").textContent = "Profile Edit";
+    
+    hides.forEach(function(item) {
+        item.style.display = 'none';
+    });
+    
+    // Hide edit button and show save button
+    document.getElementById('profilebtn').style.display = 'none';
+    document.getElementById('profileeditor').style.display = 'block';
+    document.getElementById('editname').value = document.getElementById('name').textContent;
+    document.getElementById('editemail').value = document.getElementById('email').textContent;
+    document.getElementById('editphone').value = document.getElementById('phonenumber').textContent;
+    document.getElementById('editlocation').value = document.getElementById('location').textContent;
+});
+
+
+    profilePicInput.addEventListener('change', function() {
+         const file = this.files[0];
+         if (file) {
+         const reader = new FileReader();
+             reader.onload = function(e) {
+                 profilePicPreview.src = e.target.result;
+                profilePicPreview.style.display = 'block';
+             }
+            reader.readAsDataURL(file);
+        } else {
+             profilePicPreview.style.display = 'none';
+        }
+     });
+
+document.getElementById('saveprofilebtn').addEventListener('click', function(event) {
+    // Prevent the default form submission
+    event.preventDefault();
+
+    //fetch start
+   
+    // Create a FormData object from the form
+    /*
+    const formData = new FormData(this);
+
+    // Send the form data using fetch
+    fetch('/your-endpoint', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json(); // Assuming server responds with JSON
+        }
+        throw new Error('Network response was not ok.');
+    })
+    .then(data => {
+        // Handle the response data if needed
+        console.log('Success:', data);
+        // You can add code here to update the UI or show a success message
+    })
+    .catch(error => {
+        // Handle errors
+        console.error('Error:', error);
+    });
+
+
+*/
+    //end of fetch
+
+
+
+
+
+    
+    // Hide the profile editor form
+    document.getElementById('profileeditor').style.display = 'none';
+    
+    // Show the profile sections
+    var hides = document.querySelectorAll('.section');
+    document.getElementById("title").textContent = "About";
+    
+    hides.forEach(function(item) {
+        item.style.display = 'block';
+    });
+    
+    // Update the profile information with the edited values
+    document.getElementById('name').textContent = document.getElementById('editname').value;
+    document.getElementById('email').textContent = document.getElementById('editemail').value;
+    document.getElementById('phonenumber').textContent = document.getElementById('editphone').value;
+    document.getElementById('location').textContent = document.getElementById('editlocation').value;
+    
+    // Show the edit button
+    document.getElementById('profilebtn').style.display = 'inline-block';
+});
+
+
+
 
             document.getElementById('add-product-btn').addEventListener('click', function() {
                 //hide it
