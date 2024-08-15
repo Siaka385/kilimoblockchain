@@ -440,6 +440,9 @@ label[for="saleMethod"] {
     background-color: #e53935;
 }
 
+.payments{
+    border: 2px solid black;
+}
 
 
 
