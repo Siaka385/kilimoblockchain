@@ -247,11 +247,15 @@
 
     <div class="section">
         <h3>Banking and Payment Info</h3>
+        <div id="paymentcontainer">
+            <div id="payment" class="payments">
         <p>Preferred Payment Method: <strong id="paymentmethod">Mobile Money (M-Pesa)</strong></p>
         <p>PayBill: <strong id="PayBill">522533</strong></p>
         <p>Account number: <strong id="Account">123</strong></p>
+            </div>
         <button class="edit-button" id="editBankMethod">Edit Banking Info</button>
         <button class="edit-button"  id="addbankmethod">Add another payment method</button>
+        </div>
     </div>
 
     <div class="section">
@@ -294,6 +298,81 @@
         <button type="button" class="cancel-button">Cancel</button>
     </div>
 </div>
+
+
+<!---EDIT FARM INFO-->
+<div class="form-container" style="display: none;" id="farm-editor">
+    <h2>Edit Farm Information</h2>
+    <form>
+        <div class="form-group">
+            <label for="farm-name">Farm Name</label>
+            <input type="text" id="editfarmname" name="farmname" placeholder="Enter farm name" required>
+        </div>
+        <div class="form-group">
+            <label for="farm-size">Farm Size</label>
+            <input type="text" id="editfarmsize" name="farmsize" placeholder="Enter farm size (e.g., 50 acres)" required>
+        </div>
+        <div class="form-group">
+            <label for="farm-products">Type of Products</label>
+            <input type="text" id="editproducts" name="products" placeholder="Enter type of products (e.g., Maize, Beans, Dairy)" required>
+        </div>
+        <div class="form-group">
+            <label for="years-experience">Years of Experience</label>
+            <input type="number" id="editexperience" name="experience" placeholder="Enter years of experience" required>
+        </div>
+    </form>
+    <div class="button-group">
+        <button type="button" class="save-button" id="savefarmbtn">Save</button>
+        <button type="button" class="cancel-button" id="cancelfarmbtn">Cancel</button>
+    </div>
+</div>
+
+
+<!--EDIT PAYMENT METHOD-->
+<div class="form-container" style="display: none;" id="bank-editor">
+    <h2>Edit Banking and Payment Info</h2>
+    <form>
+        <div class="form-group">
+            <label for="payment-method">Preferred Payment Method</label>
+            <input type="text" id="editpaymentmethod" name="paymentmethod" placeholder="Enter payment method" required>
+        </div>
+        <div class="form-group">
+            <label for="paybill">PayBill</label>
+            <input type="text" id="editPayBill" name="paybill" placeholder="Enter PayBill number" required>
+        </div>
+        <div class="form-group">
+            <label for="account-number">Account Number</label>
+            <input type="text" id="editAccount" name="accountnumber" placeholder="Enter account number" required>
+        </div>
+    </form>
+    <div class="button-group">
+        <button type="button" class="save-button" id="saveBankBtn">Save</button>
+        <button type="button" class="cancel-button" id="cancelBankBtn">Cancel</button>
+    </div>
+</div>
+
+<div class="form-container" style="display: none;" id="bank-adder">
+    <h2>Add Another Payment Method</h2>
+    <form>
+        <div class="form-group">
+            <label for="new-payment-method">Payment Method</label>
+            <input type="text" id="newpaymentmethod" name="newpaymentmethod" placeholder="Enter new payment method" required>
+        </div>
+        <div class="form-group">
+            <label for="new-paybill">PayBill</label>
+            <input type="text" id="newPayBill" name="newpaybill" placeholder="Enter new PayBill number" required>
+        </div>
+        <div class="form-group">
+            <label for="new-account-number">Account Number</label>
+            <input type="text" id="newAccount" name="newaccountnumber" placeholder="Enter new account number" required>
+        </div>
+    </form>
+    <div class="button-group">
+        <button type="button" class="save-button" id="saveNewBankBtn">Save</button>
+        <button type="button" class="cancel-button" id="cancelNewBankBtn">Cancel</button>
+    </div>
+</div>
+
 
 
 </div>
@@ -342,7 +421,7 @@
             /**************************************************
              * PROFILE PAGE
              *******************/
-             document.getElementById('profilebtn').addEventListener('click', function() {
+ document.getElementById('profilebtn').addEventListener('click', function() {
     // Hide text elements and show input fields
     var hides = document.querySelectorAll('.section');
     document.getElementById("title").textContent = "Profile Edit";
@@ -361,19 +440,19 @@
 });
 
 
-    profilePicInput.addEventListener('change', function() {
-         const file = this.files[0];
-         if (file) {
-         const reader = new FileReader();
-             reader.onload = function(e) {
-                 profilePicPreview.src = e.target.result;
-                profilePicPreview.style.display = 'block';
-             }
-            reader.readAsDataURL(file);
-        } else {
-             profilePicPreview.style.display = 'none';
-        }
-     });
+    // profilePicInput.addEventListener('change', function() {
+    //      const file = this.files[0];
+    //      if (file) {
+    //      const reader = new FileReader();
+    //          reader.onload = function(e) {
+    //              profilePicPreview.src = e.target.result;
+    //             profilePicPreview.style.display = 'block';
+    //          }
+    //         reader.readAsDataURL(file);
+    //     } else {
+    //          profilePicPreview.style.display = 'none';
+    //     }
+    //  });
 
 document.getElementById('saveprofilebtn').addEventListener('click', function(event) {
     // Prevent the default form submission
@@ -410,11 +489,6 @@ document.getElementById('saveprofilebtn').addEventListener('click', function(eve
 */
     //end of fetch
 
-
-
-
-
-    
     // Hide the profile editor form
     document.getElementById('profileeditor').style.display = 'none';
     
@@ -435,6 +509,176 @@ document.getElementById('saveprofilebtn').addEventListener('click', function(eve
     // Show the edit button
     document.getElementById('profilebtn').style.display = 'inline-block';
 });
+/***********************************
+ * END OF PROFILE EDIT
+ * 
+ * *******************/
+
+/****************************************************
+ * EDIT FARM INPUT
+ * ***********************************************/
+document.getElementById("farmbtn").addEventListener("click",function(){
+
+ // Hide the current section and show the farm editor form
+ document.querySelectorAll('.section').forEach(function(item) {
+        item.style.display = 'none';
+    });
+    document.getElementById("title").textContent = "Edit Farm Information";
+    document.getElementById('farm-editor').style.display = 'block';
+
+    // Populate the form with the existing farm details
+    document.getElementById('editfarmname').value = document.getElementById('farmname').textContent;
+    document.getElementById('editfarmsize').value = document.getElementById('farmsize').textContent;
+    document.getElementById('editproducts').value = document.getElementById('products').textContent;
+    document.getElementById('editexperience').value = document.getElementById('Experience').textContent;
+})
+document.getElementById("savefarmbtn").addEventListener("click",function(event){
+
+ // Prevent default form submission
+ event.preventDefault();
+
+// const farm=new farmdetails(this) 
+
+// fetch("/endpoint",{
+//     method:"POST",
+//     body:farm
+// }).then(response=>{
+//     if(response.ok){
+//         response.json()
+//     }
+//     throw new Error('Network response was not ok.');
+// }).then(data => {
+//         // Handle the response data if needed
+//         console.log('Success:', data);
+//         // You can add code here to update the UI or show a success message
+//     })
+//     .catch(error => {
+//         // Handle errors
+//         console.error('Error:', error);
+//     });
+
+
+// Hide the farm editor form and show the sections again
+document.getElementById('farm-editor').style.display = 'none';
+
+document.querySelectorAll('.section').forEach(function(item) {
+    item.style.display = 'block';
+});
+document.getElementById("title").textContent = "About";
+
+// Update the farm information with the edited values
+document.getElementById('farmname').textContent = document.getElementById('editfarmname').value;
+document.getElementById('farmsize').textContent = document.getElementById('editfarmsize').value;
+document.getElementById('products').textContent = document.getElementById('editproducts').value;
+document.getElementById('Experience').textContent = document.getElementById('editexperience').value;
+})
+
+
+
+document.getElementById('cancelfarmbtn').addEventListener('click', function() {
+    // Hide the farm editor form and show the sections again
+    document.getElementById('farm-editor').style.display = 'none';
+    document.querySelectorAll('.section').forEach(function(item) {
+        item.style.display = 'block';
+    });
+    document.getElementById("title").textContent = "About";
+});
+
+/*******************************
+ * END OF FARM INPUT
+ * *************************/
+
+
+ /**************
+  * 
+  * BANK DETAILS
+  * **************/
+ // Handle editing the current payment method
+document.getElementById('editBankMethod').addEventListener('click', function() {
+    // Hide the current section and show the bank editor form
+    document.querySelectorAll('.section').forEach(function(item) {
+        item.style.display = 'none';
+    });
+    document.getElementById("title").textContent = "Edit Banking and Payment Info";
+    document.getElementById('bank-editor').style.display = 'block';
+
+    // Populate the form with the existing payment details
+    document.getElementById('editpaymentmethod').value = document.getElementById('paymentmethod').textContent;
+    document.getElementById('editPayBill').value = document.getElementById('PayBill').textContent;
+    document.getElementById('editAccount').value = document.getElementById('Account').textContent;
+});
+
+// Handle saving the edited payment method
+document.getElementById('saveBankBtn').addEventListener('click', function(event) {
+    // Prevent default form submission
+    event.preventDefault();
+
+    // Hide the bank editor form and show the sections again
+    document.getElementById('bank-editor').style.display = 'none';
+    document.querySelectorAll('.section').forEach(function(item) {
+        item.style.display = 'block';
+    });
+    document.getElementById("title").textContent = "About";
+
+    // Update the payment information with the edited values
+    document.getElementById('paymentmethod').textContent = document.getElementById('editpaymentmethod').value;
+    document.getElementById('PayBill').textContent = document.getElementById('editPayBill').value;
+    document.getElementById('Account').textContent = document.getElementById('editAccount').value;
+});
+
+// Handle adding a new payment method
+document.getElementById('addbankmethod').addEventListener('click', function() {
+    // Hide the current section and show the bank adder form
+    document.querySelectorAll('.section').forEach(function(item) {
+        item.style.display = 'none';
+    });
+    document.getElementById("title").textContent = "Add Another Payment Method";
+    document.getElementById('bank-adder').style.display = 'block';
+});
+
+// Handle saving the new payment method
+document.getElementById('saveNewBankBtn').addEventListener('click', function(event) {
+    // Prevent default form submission
+    event.preventDefault();
+
+    // Hide the bank adder form and show the sections again
+    document.getElementById('bank-adder').style.display = 'none';
+    document.querySelectorAll('.section').forEach(function(item) {
+        item.style.display = 'block';
+    });
+    document.getElementById("title").textContent = "About";
+
+    // Optionally, you can add the new payment method details to a list or elsewhere on the page
+    // Example:
+    const newMethod = document.createElement('p');
+    newMethod.innerHTML = `Payment Method: <strong>${document.getElementById('newpaymentmethod').value}</strong><br>
+                           PayBill: <strong>${document.getElementById('newPayBill').value}</strong><br>
+                           Account Number: <strong>${document.getElementById('newAccount').value}</strong>`;
+    document.querySelector('.section').appendChild(newMethod);
+});
+
+// Handle canceling the editing or adding process
+document.getElementById('cancelBankBtn').addEventListener('click', function() {
+    document.getElementById('bank-editor').style.display = 'none';
+    document.querySelectorAll('.section').forEach(function(item) {
+        item.style.display = 'block';
+    });
+    document.getElementById("title").textContent = "About";
+});
+
+document.getElementById('cancelNewBankBtn').addEventListener('click', function() {
+    document.getElementById('bank-adder').style.display = 'none';
+    document.querySelectorAll('.section').forEach(function(item) {
+        item.style.display = 'block';
+    });
+    document.getElementById("title").textContent = "About";
+});
+
+/**************
+ * END OF BANK DETAAILS
+ * ******************/
+
+ 
 
 
 
