@@ -230,6 +230,7 @@
     background-color: #f1f1f1;
 }
 
+
 /* Modal Background */
 #add-product-modal {
     position: fixed;
@@ -445,8 +446,27 @@ label[for="saleMethod"] {
 }
 
 
-
-
+/*BBANK INFO BUTTONS  */
+.delete{
+    background-color: red;
+      display: block;
+       width: 200px;
+       margin: 10px 0;
+       padding: 10px;
+       color: #fff;
+       text-align: center;
+       border: none;
+       border-radius: 5px;
+       cursor: pointer;
+       transition: background-color 0.3s ease;
+   }
+   .delete:hover{
+       background-color: #e53935;
+   }
+.btns{
+    display: flex;
+    justify-content: space-between;
+}
 
 
 /* Dropdown Style */
