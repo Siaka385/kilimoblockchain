@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmer Dashboard</title>
     <link rel="stylesheet" href="static/dash.css">
-    <script defer src="profile.js"></script>
+    <script defer src="dashboard.js"></script>
 </head>
 <body>
     <div class="navbar">
@@ -71,11 +71,11 @@
             </thead>
             <tbody id="product-table-body">
                 <tr>
-                    <td>Tomato</td>
+                    <td>rice</td>
                     <td>#45556</td>
                     <td>50</td>
                     <td>20kg</td>
-                    <td><img src="path-to-image1.jpg" alt="Tomato" width="50"></td>
+                    <td><img src="Images/rice.jpg" alt="rice" class="productimage"></td>
                     <td>sale per kg</td>
                     <td>1000</td>
                 </tr>
@@ -84,7 +84,7 @@
                     <td>#56660</td>
                     <td>60</td>
                     <td>10kg</td>
-                    <td><img src="path-to-image2.jpg" alt="Maize" width="50"></td>
+                    <td><img src="Images/maize.jpg" alt="Maize" class="productimage"></td>
                     <td>sale per quantity</td>
                     <td>1000</td>
                 </tr>
@@ -113,12 +113,12 @@
         <input type="text" id="weight">
 
         <label for="saleMethod">Sale method:</label>
-        <select required>
+        <select id="saleMethod" required>
             <option>sale per kg</option>
             <option>sale per quantity</option>
         </select>
         
-        <label for="Price">Price per weight(price per quantity):</label>
+        <label for="Price">Price:</label>
         <input type="number" id="Price">
 
 
@@ -140,24 +140,28 @@
         <table class="quality-table">
             <thead>
                 <tr>
-                    <th>Product Batch</th>
+                    <th>Product</th>
+                    <th>Batch</th>
                     <th>Status</th>
                     <th>Notes</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Tomato batch #789</td>
+                    <td>Tomato</td>
+                    <td>#789</td>
                     <td>In Progress</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Wheat batch #456</td>
+                    <td>Wheat</td>
+                    <td>#456</td>
                     <td>Approved</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Potato batch #567</td>
+                    <td>Potato</td>
+                    <td>#567</td>
                     <td>Rejected</td>
                     <td>High moisture content</td>
                 </tr>
@@ -249,27 +253,27 @@
         <h3>Banking and Payment Info</h3>
         <div id="paymentcontainer">
             <div class="payment-wrapper">
-                <div id="payment" class="payments">
+                <div id="payment">
                     <p>Preferred Payment Method: <strong id="paymentmethod">Mobile Money (M-Pesa)</strong></p>
                     <p>PayBill: <strong id="PayBill">522533</strong></p>
                     <p>Account number: <strong id="Account">123</strong></p>
                 </div>
                 <div class="btns">
                     <button class="edit-button" id="editBankMethod">Edit Banking Info</button>
-                    <button id="delete" class="delete">DELETE</button>
+                    <!-- <button id="delete" class="delete">DELETE</button> -->
                 </div>
             </div>
         </div>
-        <button class="edit-button" id="addbankmethod">Add another payment method</button>
+       
     </div>
     
 
     <div class="section">
         <h3>Social Media</h3>
-        <p>Facebook: <a href="https://facebook.com/johndoe" target="_blank"><strong>facebook.com/johndoe</strong></a></p>
-        <p>Twitter: <a href="https://twitter.com/johndoe" target="_blank"><strong>@johndoe</strong></a></p>
-        <p>Instagram: <a href="https://instagram.com/johndoe" target="_blank"><strong>@johndoe</strong></a></p>
-        <button class="edit-button">Edit Social Media</button>
+        <p>Facebook: <a id="facebook" href="https://facebook.com/johndoe" target="_blank"><strong>facebook.com/johndoe</strong></a></p>
+        <p>Twitter: <a id="twitter"  href="https://twitter.com/johndoe" target="_blank"><strong>@johndoe</strong></a></p>
+        <p>Instagram: <a id="instagram" href="https://instagram.com/johndoe" target="_blank"><strong>@johndoe</strong></a></p>
+        <button class="edit-button" id="socialmedia">Edit Social Media</button>
     </div>
 
 
@@ -340,7 +344,9 @@
     <form>
         <div class="form-group">
             <label for="payment-method">Preferred Payment Method</label>
-            <input type="text" id="editpaymentmethod" name="paymentmethod" placeholder="Enter payment method" required>
+            <select id="editpaymentmethod" name="paymentmethod">
+                <option selected>Mobile money(M-Pesa)</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="paybill">PayBill</label>
@@ -357,12 +363,15 @@
     </div>
 </div>
 
+<!--ADD ANOTHER PAYMENT
 <div class="form-container" style="display: none;" id="bank-adder">
     <h2>Add Another Payment Method</h2>
     <form>
         <div class="form-group">
             <label for="new-payment-method">Payment Method</label>
-            <input type="text" id="newpaymentmethod" name="newpaymentmethod" placeholder="Enter new payment method" required>
+            <select id="newpaymentmethod" name="newpaymentmethod">
+                <option>Mobile money(M-Pesa)</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="new-paybill">PayBill</label>
@@ -378,6 +387,34 @@
         <button type="button" class="cancel-button" id="cancelNewBankBtn">Cancel</button>
     </div>
 </div>
+-->
+
+
+
+   <!--EDIT SOCIAL MEDIA-->
+<div class="form-container" style="display: none;" id="social-editor">
+    <h2>Edit Social Media Info</h2>
+    <form>
+        <div class="form-group">
+            <label for="facebook">Facebook</label>
+            <input type="text" id="editFacebook" name="facebook" placeholder="Enter Facebook URL" required>
+        </div>
+        <div class="form-group">
+            <label for="twitter">Twitter</label>
+            <input type="text" id="editTwitter" name="twitter" placeholder="Enter Twitter handle" required>
+        </div>
+        <div class="form-group">
+            <label for="instagram">Instagram</label>
+            <input type="text" id="editInstagram" name="instagram" placeholder="Enter Instagram handle" required>
+        </div>
+    </form>
+    <div class="button-group">
+        <button type="button" class="save-button" id="saveSocialBtn">Save</button>
+        <button type="button" class="cancel-button" id="cancelSocialBtn">Cancel</button>
+    </div>
+</div>
+
+
 
 
 
