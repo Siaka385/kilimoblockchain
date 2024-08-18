@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         //show products
         document.getElementById('products-page').style.display='block';
     });
+
     
     document.getElementById('save-product-btn').addEventListener('click', function() {
         // Get input values
@@ -58,12 +59,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const quantity = document.getElementById('quantity').value;
         const weight = document.getElementById('weight').value;
         const productImage = document.getElementById('product-image').files[0];
-    
-        // Validate inputs
-        if (!productName || !batchNumber || !quantity || !weight || !productImage) {
-            alert('Please fill in all fields and select an image.');
-            return;
-        }
+        const methodOfsale=document.getElementById("saleMethod").value;
+        const price=document.getElementById("Price").value;
+
+console.log(methodOfsale)
+        // // Validate inputs
+        // if (!productName || !batchNumber || !quantity || !weight || !productImage) {
+        //     alert('Please fill in all fields and select an image.');
+        //     return;
+        // }
     
         // Create a new table row
         const newRow = document.createElement('tr');
@@ -74,7 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
             <td>${batchNumber}</td>
             <td>${quantity}</td>
             <td>${weight}</td>
-            <td><img src="${URL.createObjectURL(productImage)}" alt="${productName}" width="50"></td>
+            <td><img src="${URL.createObjectURL(productImage)}" alt="${productName}" class="productimage"></td>
+            <td>${methodOfsale}</td>
+            <td>${price}</td>
         `;
     
         // Append the new row to the table body
@@ -83,6 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide the modal
         document.getElementById('add-product-modal').style.display = 'none';
     
+
+        document.getElementById('products-page').style.display='block'
         // Clear the input fields
         document.getElementById('product-name').value = '';
         document.getElementById('batch-number').value = '';
@@ -202,40 +210,9 @@ document.getElementById('profilebtn').style.display = 'inline-block';
 * 
 * *******************/
 
-/****************************************************
-* EDIT FARM INPUT// Handle saving the new payment method
-document.getElementById('saveNewBankBtn').addEventListener('click', function(event) {
-// Prevent default form submission
-event.preventDefault();
-
-// Hide the bank adder form and show the sections again
-document.getElementById('bank-adder').style.display = 'none';
-document.querySelectorAll('.section').forEach(function(item) {
-item.style.display = 'block';
-});
-document.getElementById("title").textContent = "About";
-
-// Optionally, you can add the new payment method details to a list or elsewhere on the page
-// Example:
-var divs=document.getElementsByClassName("btns");
-var container=document.createElement('div');
-var btn1=document.createElement("button");
-btn1.classList.add("edit-button");
-var btn2=document.createElement("button");
-btn2.classList.add("delete")
-
-divs.appendChild(container)
-container.appendChild(btn1);
-btn1.appendChild(btn2)
 
 
-const newMethod = document.createElement('p');
-newMethod.innerHTML = `Payment Method: <strong>${document.getElementById('newpaymentmethod').value}</strong><br>
-                   PayBill: <strong>${document.getElementById('newPayBill').value}</strong><br>
-                   Account Number: <strong>${document.getElementById('newAccount').value}</strong>`;
-document.querySelector('.btns').appendChild(newMethod);
-});
-* ***********************************************/
+
 document.getElementById("farmbtn").addEventListener("click",function(){
 
 // Hide the current section and show the farm editor form
@@ -322,7 +299,6 @@ document.getElementById("title").textContent = "Edit Banking and Payment Info";
 document.getElementById('bank-editor').style.display = 'block';
 
 // Populate the form with the existing payment details
-document.getElementById('editpaymentmethod').value = document.getElementById('paymentmethod').textContent;
 document.getElementById('editPayBill').value = document.getElementById('PayBill').textContent;
 document.getElementById('editAccount').value = document.getElementById('Account').textContent;
 });
@@ -345,21 +321,26 @@ document.getElementById('PayBill').textContent = document.getElementById('editPa
 document.getElementById('Account').textContent = document.getElementById('editAccount').value;
 });
 
-// Handle adding a new payment method
-document.getElementById('addbankmethod').addEventListener('click', function() {
-// Hide the current section and show the bank adder form
-document.querySelectorAll('.section').forEach(function(item) {
-item.style.display = 'none';
-});
-document.getElementById("title").textContent = "Add Another Payment Method";
-document.getElementById('bank-adder').style.display = 'block';
-});
+
+//ADD BANK METHOD CLOSED
+
+// // Handle adding a new payment method
+// document.getElementById('addbankmethod').addEventListener('click', function() {
+// // Hide the current section and show the bank adder form
+// document.querySelectorAll('.section').forEach(function(item) {
+// item.style.display = 'none';
+// });
+// document.getElementById("title").textContent = "Add Another Payment Method";
+// document.getElementById('bank-adder').style.display = 'block';
+// });
+
+/*
 
 // Handle saving the new payment method
 document.getElementById('saveNewBankBtn').addEventListener('click', function(event) {
 // Prevent default form submission
 event.preventDefault();
-
+cancel=document.querySelectorAll(".delete")
 // Hide the bank adder form and show the sections again
 document.getElementById('bank-adder').style.display = 'none';
 document.querySelectorAll('.section').forEach(function(item) {
@@ -418,17 +399,72 @@ document.getElementById('cancelNewBankBtn').addEventListener('click', function()
 document.getElementById('bank-adder').style.display = 'none';
 document.querySelectorAll('.section').forEach(function(item) {
 item.style.display = 'block';
-});
+});editSocialBtn
 document.getElementById("title").textContent = "About";
 });
+
+*/
 
 /**************
 * END OF BANK DETAAILS
 * ******************/
 
+/****************
+ * EDIT SOCIAL MEDIA
+ *****************/
+document.getElementById("socialmedia").addEventListener("click",function(){
+    // Hide the current section and show the bank editor form
+    document.querySelectorAll('.section').forEach(function(item) {
+    item.style.display = 'none';
+    });
+    document.getElementById("title").textContent = "Edit social media info";
+    document.getElementById('social-editor').style.display = 'block';
+    
+    // Populate the form with the existing payment details
+    document.getElementById('editFacebook').value = document.getElementById('facebook').textContent;
+    document.getElementById('editTwitter').value = document.getElementById('twitter').textContent;
+    document.getElementById('editInstagram').value=document.getElementById("instagram").textContent;
+});
+document.getElementById("saveSocialBtn").addEventListener("click",function(event){
+      event.preventDefault();
+
+      // Collect updated values from the form
+      const updatedFacebook = document.getElementById('editFacebook').value;
+      const updatedTwitter = document.getElementById('editTwitter').value;
+      const updatedInstagram = document.getElementById('editInstagram').value;
+  
+       
 
 
+      // Update the social media info section with the new values
+      document.getElementById('facebook').textContent = updatedFacebook;
+      document.getElementById('twitter').textContent = updatedTwitter;
+      document.getElementById('instagram').textContent = updatedInstagram;
+  
+   let fb =document.getElementById('facebook');
+   let twitter=document.getElementById('twitter');
+   let insta=document.getElementById('instagram');
+   fb.href="https://facebook.com/"+updatedFacebook
+   twitter.href="https://twitter.com/"+updatedTwitter
+   insta.href="https://instagram.com/"+updatedInstagram
 
+      // Hide the editor form and show the sections again
+      document.getElementById('social-editor').style.display = 'none';
+      document.querySelectorAll('.section').forEach(function(item) {
+          item.style.display = 'block';
+      });
+      document.getElementById("title").textContent = "About";
+
+})
+
+document.getElementById("cancelSocialBtn").addEventListener("click",function(){
+    // Hide the farm editor form and show the sections again
+document.getElementById('social-editor').style.display = 'none';
+document.querySelectorAll('.section').forEach(function(item) {
+item.style.display = 'block';
+});
+document.getElementById("title").textContent = "About";
+})
     
     
 });

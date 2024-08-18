@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Social Media Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            transition: filter 0.3s;
+            background-image: url('Images/background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .registration-container {
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section {
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 100px auto;
+            color: #ffffff; /* White text for high contrast */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff; /* Ensure input fields are visible on dark background */
+        }
+
+        .button-group {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .prev-button {
+            background-color: #6c757d;
+        }
+
+        .skip-button {
+            background-color: #ffc107;
+        }
+
+        .submit-button {
+            background-color: #28a745;
+        }
+
+        /* Optional: Hover effects for buttons */
+        .button-group button:hover {
+            opacity: 0.8;
+        }
+
+        .button-group button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <form id="registrationForm" action="thankyou.html">
+            <div class="section">
+                <h2>Social Media Information</h2>
+                <div class="form-group">
+                    <label for="facebook">Facebook Profile</label>
+                    <input type="url" id="facebook" name="facebook" placeholder="https://facebook.com/username">
+                </div>
+                <div class="form-group">
+                    <label for="twitter">Twitter Handle</label>
+                    <input type="text" id="twitter" name="twitter" placeholder="@username">
+                </div>
+                <div class="form-group">
+                    <label for="instagram">Instagram Handle</label>
+                    <input type="text" id="instagram" name="instagram" placeholder="@username">
+                </div>
+                <div class="button-group">
+                    <button type="button" class="prev-button">Previous</button>
+                    <button type="button" class="skip-button" onclick="window.location.href='thankyou.html';">Skip</button>
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

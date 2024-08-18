@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Farm Details</title>
+     <!-- Ensure this path is correct -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            transition: filter 0.3s;
+            background-image: url('Images/background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .registration-container, .thank-you-container {
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .section {
+    
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 100px auto;
+    color: #ffffff; /* White text for high contrast */
+}
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .button-group {
+            margin-top: 20px;
+        }
+  /* Style for the container of checkboxes */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Hide default checkbox appearance */
+.checkbox-container input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Custom style for checked state */
+.checkbox-container input[type="checkbox"]:checked {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Custom style for the checkmark */
+.checkbox-container input[type="checkbox"]:checked::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Style for the label */
+.checkbox-container label {
+    font-size: 16px;
+    color:whitesmoke;
+    cursor: pointer;
+}
+
+/* Hover effect for the checkbox */
+.checkbox-container input[type="checkbox"]:hover {
+    border-color: #0056b3;
+}
+
+
+        .button-group button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .button-group button.prev-button {
+            background-color: #6c757d;
+        }
+
+        .button-group button.submit-button {
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <form id="registrationForm" action="/farmregistration" method="post">
+            <div class="section">
+                <h1 style="color: black;padding-bottom: 20px;margin-top: 10px;text-align: center;">Farm Details</h1>
+                <div class="form-group">
+                    <label for="farmName">Farm Name</label>
+                    <input type="text" id="farmName" name="farmName" placeholder="Enter farm name" required>
+                </div>
+                <div class="form-group">
+                    <label for="farmSize">Farm Size</label>
+                    <input type="text" id="farmSize" name="farmSize" placeholder="Enter farm size" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Type of Products</label>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="productMaize" name="products" value="Maize">
+                        <label for="productMaize">Maize</label>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="productBeans" name="products" value="Beans">
+                        <label for="productBeans">Beans</label>
+                    </div>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="productDairy" name="products" value="Dairy">
+                        <label for="productDairy">Dairy</label>
+                    </div>
+                    <!-- Add more checkboxes as needed -->
+                </div>
+                
+                
+                <div class="form-group">
+                    <label for="experience">Years of Experience</label>
+                    <input type="text" id="experience" name="experience" placeholder="Enter year of experience" required>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="prev-button">Previous</button>
+                    <button type="submit" class="submit-button" id="farmsubmit">Next</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script>
+        window.onload=()=>{
+document.getElementById("farmsubmit").addEventListener("click",function(){
+
+
+    fetch('http://localhost:8078/farmregistration', {
+  credentials: 'include'
+}).then(response => response.json()
+).then(data => {
+    alert(data)
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+
+
+
+});
+
+
+        };
+    </script>
+</body>
+</html>

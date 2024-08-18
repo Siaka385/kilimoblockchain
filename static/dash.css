@@ -295,6 +295,24 @@
     font-size: 16px;
 }
 
+
+
+/* Centering the content horizontally and vertically in all cells */
+#product-table-body td {
+    text-align: center; /* Center text horizontally */
+    vertical-align: middle; /* Center text vertically */
+    font-size: 25px;
+  }
+  
+  /* Optional: Style for images to fit nicely within cells */
+  #product-table-body .productimage {
+    max-width: 100px; /* Adjust the size as needed */
+    max-height: 100px; /* Adjust the size as needed */
+    object-fit: cover; /* Maintain aspect ratio */
+  }
+  
+
+
 #save-product-btn {
     background-color: #4CAF50;
     color: white;

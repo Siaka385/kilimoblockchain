@@ -54,5 +54,53 @@
     "phoneNumber": "0745202285",
     "password": "$2a$10$Mid5CNOprQtB9b5agS3k.O/hBenyPdVQJI7HUbxuu800CPYT/SOE2",
     "confirmpassword": "$2a$10$Mid5CNOprQtB9b5agS3k.O/hBenyPdVQJI7HUbxuu800CPYT/SOE2"
+  },
+  {
+    "name": "TEDDDY",
+    "username": "merc",
+    "email": "mee@gmail.com",
+    "phoneNumber": "0745202222",
+    "password": "$2a$10$NRLKhU02u.CNznIpSt8ttuV2oV12y8aLugZfx6BoGEJIxXdWWeq1K",
+    "confirmpassword": "$2a$10$NRLKhU02u.CNznIpSt8ttuV2oV12y8aLugZfx6BoGEJIxXdWWeq1K"
+  },
+  {
+    "name": "LAAA",
+    "username": "LARRYME",
+    "email": "teddy@gmaiiil.comm",
+    "phoneNumber": "0712345677",
+    "password": "$2a$10$qDgp/M326cTMpRoFipNM0O6fS7B7KlEIhSTDsfTMuU20JfUjXQjnW",
+    "confirmpassword": "$2a$10$qDgp/M326cTMpRoFipNM0O6fS7B7KlEIhSTDsfTMuU20JfUjXQjnW"
+  },
+  {
+    "name": "TEDDYs",
+    "username": "jefted",
+    "email": "opp@gmail.com",
+    "phoneNumber": "0745202222",
+    "password": "$2a$10$8FrPXs0agxpSwDBeECPpL.SgxraY6vhx2q0YNRnnuxUcwSs.FK9V6",
+    "confirmpassword": "$2a$10$8FrPXs0agxpSwDBeECPpL.SgxraY6vhx2q0YNRnnuxUcwSs.FK9V6"
+  },
+  {
+    "name": "e",
+    "username": "eeeeeeeeeeeeeeeeeeeeeeefen",
+    "email": "cdkvf@gmail.com",
+    "phoneNumber": "0745202222",
+    "password": "$2a$10$xM6WogVIq3R.S32TGwUnBuLcqybMWnmfpwtdU3CuUPe/VDzKaEAB2",
+    "confirmpassword": "$2a$10$xM6WogVIq3R.S32TGwUnBuLcqybMWnmfpwtdU3CuUPe/VDzKaEAB2"
+  },
+  {
+    "name": "Teddy",
+    "username": "teddy202020",
+    "email": "ted@gmailsss.com",
+    "phoneNumber": "1233333333",
+    "password": "$2a$10$XwsxN0aZObnM9dOk0tHljeqtmQ8/WwDOmUqJwCcH6y/yOuAMnas/K",
+    "confirmpassword": "$2a$10$XwsxN0aZObnM9dOk0tHljeqtmQ8/WwDOmUqJwCcH6y/yOuAMnas/K"
+  },
+  {
+    "name": "onyango",
+    "username": "eee",
+    "email": "ddy@gmaiiil.comm",
+    "phoneNumber": "0745202222",
+    "password": "$2a$10$Z2AWJ.V0y20Vp1tA3syccunWzk/tb0tbezQb4SwgU2vDhjjbs3Gjm",
+    "confirmpassword": "$2a$10$Z2AWJ.V0y20Vp1tA3syccunWzk/tb0tbezQb4SwgU2vDhjjbs3Gjm"
   }
 ]
