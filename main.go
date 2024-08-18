@@ -22,7 +22,6 @@ func Loginpageload(w http.ResponseWriter, r *http.Request) {
 
 func router(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/" {
-
 		SignUphandler(w)
 	} else if r.URL.Path == "/reg" {
 		asfuncss.Reg(w, r)
@@ -36,7 +35,11 @@ func router(w http.ResponseWriter, r *http.Request) {
 		signup(w, r)
 	} else if r.URL.Path == "/login" {
 		asfuncss.Login(w, r)
-	}
+	} else if r.URL.Path == "/farmregistration" {
+		asfuncss.FarmHandler(w, r)
+	} else if r.URL.Path == "/loadfarm" {
+		asfuncss.LoadFarm(w, r)
+	} 
 }
 
 func signup(w http.ResponseWriter, r *http.Request) {
